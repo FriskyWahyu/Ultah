@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun, Ratu!</title>
+  <link rel="stylesheet" href="ultah.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="ultah-navbar">
+    <button onclick="showSection('ucapan')">Ucapan</button>
+    <button onclick="showSection('lagu')">Lagu</button>
+    <button onclick="showSection('kue')">Kue</button>
+    <button onclick="showSection('album')">Album</button>
+  </nav>
+  <main>
+    <section id="ucapan" class="ultah-section">
+      <h1>Selamat Ulang Tahun, Ratuuu! 🎉</h1>
+      <p class="ultah-ucapan">
+        Pacarku uda 16 tahun yeyyy,<br>
+        semoga semua impianmu tercapai, selalu bahagia, sehat dan dikelilingi cinta.<br>
+        Dari banyaknya kopi yang kamu suka,<br>
+        tetap kamu yang selalu kopikirin hwhwhwhw<br>
+        <span class="ultah-love">I love you 💖</span>
+      </p>
+    </section>
+    <section id="lagu" class="ultah-section" style="display:none;">
+      <h2>Lagu Kesukaanmu</h2>
+      <div class="ultah-music">
+        <audio id="audio" controls>
+          <source src="lovewavetoearth.mp3" type="audio/mpeg">
+          Browser kamu tidak mendukung audio.
+        </audio>
+        <button class="ultah-playbtn" onclick="document.getElementById('audio').play()">▶️ Putar Lagu</button>
+        <button class="ultah-playbtn" onclick="document.getElementById('audio').pause()">⏸️ Pause</button>
+      </div>
+      <p class="ultah-note">Lagu ini sangat melekat denganmu</p>
+    </section>
+    <section id="kue" class="ultah-section" style="display:none;">
+      <h2>Kue Ulang Tahun Untukmu</h2>
+      <div class="cake-container">
+        <div class="cake">
+          <div class="plate"></div>
+          <div class="cake-body"></div>
+          <div class="icing"></div>
+          <div class="candle">
+            <div class="flame" id="flame"></div>
+          </div>
+        </div>
+        <button class="ultah-blowbtn" onclick="blowCandle()">Tiup Lilin 🎂</button>
+        <div id="wish" class="ultah-wish"></div>
+      </div>
+    </section>
+    <section id="album" class="ultah-section" style="display:none;">
+      <h2>Album Kenangan Kita</h2>
+      <div class="ultah-album">
+        <img src="WhatsApp Image 2025-06-06 at 22.57.39_efa0a6a7.jpg" alt="Foto 1">
+        <img src="WhatsApp Image 2025-06-09 at 21.57.32_e457b999.jpg" alt="Foto 2">
+        <img src="WhatsApp Image 2025-06-09 at 21.57.34_b56d5ba1.jpg" alt="Foto 3">
+        <img src="WhatsApp Image 2025-06-09 at 21.57.33_b99414c0.jpg" alt="Foto 4">
+        <!-- Tambahkan video di bawah ini -->
+        <video controls poster="WhatsApp Image 2025-06-06 at 22.57.38_b55476ab.jpg" style="width:100%;max-width:160px;border-radius:18px;box-shadow:0 2px 12px #e7548044;border:3px solid #fff;">
+          <source src="WhatsApp Video 2025-06-09 at 21.59.29_d0ba83ef.mp4" type="video/mp4">
+          Browser kamu tidak mendukung video.
+        </video>
+        <video controls poster="WhatsApp Image 2025-06-09 at 22.11.46_d3e9d5a7.jpg" style="width:100%;max-width:160px;border-radius:18px;box-shadow:0 2px 12px #e7548044;border:3px solid #fff;">
+          <source src="WhatsApp Video 2025-06-09 at 22.10.52_e3f3e29e.mp4" type="video/mp4">
+          Browser kamu tidak mendukung video.
+        </video>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Untukmu, Dari Frisky Yang Paling Tampan 💕</p>
+  </footer>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.ultah-section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = '';
+    }
+    function blowCandle() {
+      document.getElementById('flame').style.opacity = 0;
+      document.getElementById('wish').innerHTML = "Semoga semua harapanmu terkabul! 🎂✨";
+      setTimeout(() => {
+        document.getElementById('flame').style.opacity = 1;
+        document.getElementById('wish').innerHTML = "";
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
